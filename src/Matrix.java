@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Matrix {
     public static int[][] multiplication(int[][] arr1, int[][] arr2){
+
         if (arr1[0].length != arr2.length){
             System.out.println("Invalid number of entered rows or columns");
             return new int[1][1];
@@ -16,7 +17,6 @@ public class Matrix {
                 }
             }
         }
-
         return ans;
     }
 
@@ -53,7 +53,6 @@ public class Matrix {
                 array[i][z] = Integer.parseInt(str[i].split(" ")[z]);
             }
         }
-
         return array;
     }
 
@@ -65,7 +64,6 @@ public class Matrix {
         int[][] ans = multiplication(first,second);
 
         System.out.println("Multiplication result:");
-
         for (int[] arr : ans){
             for (int i : arr){
                 System.out.print(i + " ");
