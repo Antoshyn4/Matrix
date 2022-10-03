@@ -24,15 +24,36 @@ public class Matrix {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the number of matrix rows");
         int rows = input.nextInt();
+
         System.out.println("Enter the number of matrix columns");
         int columns = input.nextInt();
+
+        if (rows < 1 || columns < 1){
+            System.out.println("Invalid input data");
+            System.exit(0);
+        }
+
         System.out.println("Enter values separated by spaces, separating lines with an enter");
         int[][] array = new int[rows][columns];
+        input.nextLine();
+        String[] str = new String[rows];
         for (int i = 0; i < rows; i++){
-            for (int z = 0; z < columns; z++){
-                array[i][z] = input.nextInt();
+            str[i] = input.nextLine();
+        }
+
+        for (int i = 0; i < rows; i++){
+            if (str[i].split(" ").length != columns){
+                System.out.println("Invalid input data");
+                System.exit(0);
             }
         }
+
+        for (int i = 0; i < rows; i++){
+            for (int z = 0; z < columns; z++){
+                array[i][z] = Integer.parseInt(str[i].split(" ")[z]);
+            }
+        }
+
         return array;
     }
 
